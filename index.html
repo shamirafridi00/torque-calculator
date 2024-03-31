@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Free Torque Calculator</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+    }
+    
+    .calculator {
+        width: 350px; /* Increased width */
+        margin: 50px auto;
+        background-color: #006fbf;
+        padding: 20px;
+        border-radius: 10px;
+        color: white;
+        transition: background-color 0.3s;
+    }
+
+    .calculator:hover {
+        background-color: #000;
+    }
+
+    .input {
+        width: calc(100% - 20px); /* Adjusted width */
+        margin-bottom: 15px;
+        padding: 10px;
+        border: none;
+        border-radius: 5px;
+    }
+
+    .btn {
+        width: 100%;
+        padding: 10px;
+        border: none;
+        border-radius: 5px;
+        background-color: #fff;
+        color: #006fbf;
+        cursor: pointer;
+    }
+
+    .btn:hover {
+        background-color: #000;
+        color: #fff;
+    }
+</style>
+</head>
+<body>
+
+<div class="calculator">
+    <h2>Free Torque Calculator</h2>
+    <input type="number" id="torque" class="input" placeholder="Enter torque in ft-lbs">
+    <input type="number" id="radius" class="input" placeholder="Enter radius in inches">
+    <button onclick="calculate()" class="btn">Calculate Force</button>
+    <p id="result" style="margin-top: 10px;"></p>
+</div>
+
+<script>
+    function calculate() {
+        var torque = parseFloat(document.getElementById('torque').value);
+        var radius = parseFloat(document.getElementById('radius').value);
+        var force = torque / radius;
+        document.getElementById('result').innerHTML = "Force: " + force.toFixed(2) + " lbs";
+    }
+</script>
+
+</body>
+</html>
